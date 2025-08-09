@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechBook Pro - Notebook de Alta Performance</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar">
+        <div class="nav-brand">
+          <i class="fas fa-laptop"></i>
+          <span>TechBook</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="#home">Início</a></li>
+          <li><a href="#features">Recursos</a></li>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#specs">Especificações</a></li>
+          <li><a href="#gallery">Galeria</a></li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
+        <button class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>TechBook Pro</h1>
+          <h2>Performance sem limites</h2>
+          <p>
+            O notebook que redefine os padrões de performance, design e
+            inovação. Projetado para profissionais que não aceitam limitações.
+          </p>
+          <div class="hero-buttons">
+            <button class="btn btn-primary">Comprar Agora</button>
+            <button class="btn btn-secondary">Saiba Mais</button>
+          </div>
+          <div class="price">
+            <span class="price-label">A partir de</span>
+            <span class="price-value">R$ 4.999,00</span>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="laptop-mockup">
+            <div class="laptop-screen">
+              <div class="screen-content">
+                <div class="demo-app">
+                  <div class="app-bar"></div>
+                  <div class="app-content">
+                    <div class="chart"></div>
+                    <div class="widgets">
+                      <div class="widget"></div>
+                      <div class="widget"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="laptop-base"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+      <div class="container">
+        <h2>Recursos Excepcionais</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-microchip"></i>
+            </div>
+            <h3>Processador Intel Core i7</h3>
+            <p>
+              Performance de última geração com processador Intel Core i7 de 12ª
+              geração para máxima eficiência.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-memory"></i>
+            </div>
+            <h3>32GB RAM DDR5</h3>
+            <p>
+              Memória ultra-rápida DDR5 para multitasking sem travamentos e
+              performance excepcional.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-hdd"></i>
+            </div>
+            <h3>SSD NVMe 1TB</h3>
+            <p>
+              Armazenamento SSD NVMe de 1TB com velocidades de leitura/escrita
+              ultrarrápidas.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-display"></i>
+            </div>
+            <h3>Tela 4K OLED</h3>
+            <p>
+              Display 15.6" 4K OLED com cores vibrantes e contraste infinito
+              para máxima qualidade visual.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-battery-full"></i>
+            </div>
+            <h3>Bateria 12h</h3>
+            <p>
+              Bateria de longa duração que oferece até 12 horas de uso contínuo
+              com uma única carga.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Segurança Biométrica</h3>
+            <p>
+              Login por impressão digital e reconhecimento facial para máxima
+              segurança dos seus dados.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="produtos" class="produtos">
+      <div class="container">
+        <h2>Nossos Produtos</h2>
+        <p class="produtos-subtitle">
+          Conheça toda a linha TechBook com produtos que atendem diferentes
+          necessidades e orçamentos
+        </p>
+
+        <!-- Loading State -->
+        <div class="produtos-loading" id="produtos-loading">
+          <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <span>Carregando produtos...</span>
+          </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="produtos-grid" id="produtos-grid" style="display: none">
+          <!-- Produtos serão carregados dinamicamente via JavaScript -->
+        </div>
+
+        <!-- Error State -->
+        <div class="produtos-error" id="produtos-error" style="display: none">
+          <div class="error-message">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h3>Erro ao carregar produtos</h3>
+            <p>
+              Não foi possível conectar com o banco de dados. Verifique sua
+              conexão e tente novamente.
+            </p>
+            <button class="btn btn-primary" onclick="recarregarProdutos()">
+              Tentar Novamente
+            </button>
+          </div>
+        </div>
+
+        <!-- Filtros e Ordenação -->
+        <div class="produtos-controls">
+          <div class="produtos-filters">
+            <label for="filter-price">Filtrar por preço:</label>
+            <select id="filter-price" onchange="filtrarProdutos()">
+              <option value="all">Todos os preços</option>
+              <option value="0-3000">Até R$ 3.000</option>
+              <option value="3000-5000">R$ 3.000 - R$ 5.000</option>
+              <option value="5000-8000">R$ 5.000 - R$ 8.000</option>
+              <option value="8000+">Acima de R$ 8.000</option>
+            </select>
+          </div>
+
+          <div class="produtos-sorting">
+            <label for="sort-products">Ordenar por:</label>
+            <select id="sort-products" onchange="ordenarProdutos()">
+              <option value="name">Nome</option>
+              <option value="price-asc">Menor preço</option>
+              <option value="price-desc">Maior preço</option>
+              <option value="stock">Disponibilidade</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specs Section -->
+    <section id="specs" class="specs">
+      <div class="container">
+        <h2>Especificações Técnicas</h2>
+        <div class="specs-content">
+          <div class="specs-image">
+            <div class="specs-visual">
+              <div class="spec-highlight">
+                <i class="fas fa-microchip"></i>
+                <span>Intel Core i7-12700H</span>
+              </div>
+            </div>
+          </div>
+          <div class="specs-details">
+            <div class="spec-group">
+              <h3>Processamento</h3>
+              <div class="spec-item">
+                <span class="spec-label">Processador:</span>
+                <span class="spec-value"
+                  >Intel Core i7-12700H (14 cores, 20 threads)</span
+                >
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Placa Gráfica:</span>
+                <span class="spec-value"
+                  >NVIDIA GeForce RTX 4060 8GB GDDR6</span
+                >
+              </div>
+            </div>
+            <div class="spec-group">
+              <h3>Memória e Armazenamento</h3>
+              <div class="spec-item">
+                <span class="spec-label">RAM:</span>
+                <span class="spec-value">32GB DDR5-4800MHz (2x16GB)</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Armazenamento:</span>
+                <span class="spec-value">SSD NVMe M.2 1TB PCIe 4.0</span>
+              </div>
+            </div>
+            <div class="spec-group">
+              <h3>Display e Design</h3>
+              <div class="spec-item">
+                <span class="spec-label">Tela:</span>
+                <span class="spec-value">15.6" 4K OLED (3840x2160) 60Hz</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Peso:</span>
+                <span class="spec-value">1.8kg</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Espessura:</span>
+                <span class="spec-value">18.9mm</span>
+              </div>
+            </div>
+            <div class="spec-group">
+              <h3>Conectividade</h3>
+              <div class="spec-item">
+                <span class="spec-label">Portas:</span>
+                <span class="spec-value"
+                  >2x USB-C Thunderbolt 4, 2x USB 3.2, HDMI 2.1</span
+                >
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Wireless:</span>
+                <span class="spec-value">Wi-Fi 6E, Bluetooth 5.3</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+      <div class="container">
+        <h2>Galeria de Imagens</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <div class="gallery-placeholder">
+              <i class="fas fa-laptop"></i>
+              <span>Vista Frontal</span>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-placeholder">
+              <i class="fas fa-keyboard"></i>
+              <span>Teclado Retroiluminado</span>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-placeholder">
+              <i class="fas fa-usb"></i>
+              <span>Conectividade</span>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-placeholder">
+              <i class="fas fa-angle-double-right"></i>
+              <span>Perfil Lateral</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2>Entre em Contato</h2>
+        <div class="contact-content">
+          <div class="contact-info">
+            <h3>Fale Conosco</h3>
+            <p>
+              Tem dúvidas sobre o TechBook Pro? Nossa equipe está pronta para
+              ajudar você!
+            </p>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>(11) 9999-9999</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>contato@techbook.com.br</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>São Paulo, SP - Brasil</span>
+            </div>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+          <form class="contact-form">
+            <div class="form-group">
+              <input type="text" placeholder="Seu nome" required />
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Seu e-mail" required />
+            </div>
+            <div class="form-group">
+              <input type="tel" placeholder="Seu telefone" />
+            </div>
+            <div class="form-group">
+              <textarea placeholder="Sua mensagem" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Enviar Mensagem
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <i class="fas fa-laptop"></i>
+            <span>TechBook</span>
+          </div>
+          <p>&copy; 2025 TechBook. Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script-database.js"></script>
+  </body>
+</html>
